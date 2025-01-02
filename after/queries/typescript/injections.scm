@@ -1,2 +1,2 @@
 (variable_declarator
-  value: (template_string) @html)
+  value: (template_string) @html @css)
