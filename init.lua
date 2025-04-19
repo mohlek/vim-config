@@ -494,7 +494,7 @@ require('lazy').setup({
       --- { 'folke/neodev.nvim',       opts = {} },
     },
     config = function()
-      require('java').setup()
+      -- require('java').setup()
       -- Brief aside: **What is LSP?**
       --
       -- LSP is an initialism you've probably heard, but might not understand what it is.
@@ -536,6 +536,8 @@ require('lazy').setup({
             mode = mode or 'n'
             vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
           end
+
+          map('<leader>e', '<cmd>lua vim.diagnostic.open_float()<CR>', 'LSP [e]rror')
 
           -- Jump to the definition of the word under your cursor.
           --  This is where a variable was first declared, or where a function is defined, etc.
@@ -703,7 +705,7 @@ require('lazy').setup({
         },
       }
 
-      require('lspconfig').jdtls.setup {}
+      -- require('lspconfig').jdtls.setup {}
 
       -- Ensure the servers and tools above are installed
       --
@@ -779,8 +781,8 @@ require('lazy').setup({
         -- python = { "isort", "black" },
         --
         -- You can use 'stop_after_first' to run the first available formatter from the list
-        javascript = { 'prettierd', 'prettier', stop_after_first = true },
-        typescript = { 'prettierd', 'prettier', stop_after_first = true },
+        javascript = { 'eslint', 'prettierd', 'prettier', stop_after_first = true },
+        typescript = { 'eslint', 'prettierd', 'prettier', stop_after_first = true },
         javascriptreact = { 'prettierd', 'prettier', stop_after_first = true },
         typescriptreact = { 'prettierd', 'prettier', stop_after_first = true },
         css = { 'prettierd', 'prettier', stop_after_first = true },
